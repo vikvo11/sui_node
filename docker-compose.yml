@@ -1,0 +1,8 @@
+version: '1'
+services:
+  product-service:
+    build: ./node
+    volumes:
+      - ./node:/usr/src/app
+    ports:
+      - 9000:9000
