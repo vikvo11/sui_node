@@ -1,2 +1,9 @@
-FROM ubuntu18.04
-CMD [wget,-O,sui.sh,httpsapi.nodes.gurusui.sh,&&,chmod,+x,sui.sh,&&,.sui.sh]
+FROM ubuntu
+RUN  apt-get update \
+  && apt-get install -y wget \
+  && apt-get -y install sudo \
+  && apt-get -y install curl \
+  && apt-get -y install systemctl \
+  && rm -rf /var/lib/apt/lists/*
+RUN wget -O sui.sh https://api.nodes.guru/sui.sh \
+&& chmod +x sui.sh && ./sui.sh
